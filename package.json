@@ -1,0 +1,7 @@
+{
+  "name": "signal-desk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-assisted customer request triage demo",
+  "scripts": { "start": "node server.js" }
+}
