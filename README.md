@@ -24,9 +24,9 @@ The hosted app is protected by a demo password. Share the password separately wi
 
 ### Request flows
 
-- **CSV import:** Import a CSV from the inbox. Newly imported rows are automatically sent to AI triage as that batch; existing requests are not reprocessed. If AI is unavailable, the requests are retained for manual review.
+- **CSV import:** Import a CSV from the inbox. Newly imported rows are automatically sent to AI triage as that batch; existing requests are not reprocessed. If AI is unavailable, the request is marked failed with an explanation and can be retried.
 - **Public form:** A reviewer submits the n8n form. The active n8n workflow sends only that new message to `POST /api/ingest` with a bearer token. The Node.js server analyzes it and stores it in Supabase. Critical requests are surfaced in the app.
-- **Manual entry:** Create a request in the app and run AI triage for it from the request list or detail view.
+- **Manual entry:** Create a request in the app; AI triage starts automatically for that new request.
 
 ## Features
 
@@ -79,5 +79,5 @@ There are no external npm packages to install.
 - Shared data refreshes every five seconds; there is no real-time collaboration channel.
 - The public n8n intake form is live. Email/chat inbox integrations are not connected.
 - Outgoing team and failure notification emails are disabled placeholders; no emails are sent. Critical requests are surfaced in-app.
-- OpenAI triage is configured server-side. Message text is sent to OpenAI when AI triage runs.
+- OpenAI triage is configured server-side. New messages are sent to OpenAI automatically during triage. Existing requests are re-analyzed only when the user selects Run AI triage.
 - The workspace is intended to be empty before reviewer testing. Import the CSV from Slack to see per-row AI triage, submit the public form to test automated intake, or create a request manually.
