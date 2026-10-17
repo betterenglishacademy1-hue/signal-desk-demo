@@ -1,0 +1,10 @@
+.env
+node_modules/
+.DS_Store
+.codex/
+upload/
+dist/
+signal-desk-project.zip
+
+# Assessment data is supplied separately; do not commit it.
+requests-backlog.csv
