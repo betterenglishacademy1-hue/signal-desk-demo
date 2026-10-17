@@ -6,7 +6,7 @@ A compact shared support inbox for the systeme.io support triage assessment. The
 
 - **Signal Desk app:** https://signal-desk-j4mf.onrender.com
 - **Public intake form:** https://gabrielpernia.app.n8n.cloud/form/signal-desk-intake
-- **Source repository:** https://github.com/betterenglishacademy1-hue/signal-desk
+- **Source repository:** https://github.com/betterenglishacademy1-hue/signal-desk-demo
 
 The hosted app is protected by a demo password. Share the password separately with the reviewer; never commit it here.
 
