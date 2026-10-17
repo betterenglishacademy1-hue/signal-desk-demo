@@ -24,9 +24,9 @@ The hosted app is protected by a demo password. Share the password separately wi
 
 ### Request flows
 
-- **CSV import:** Import a CSV from the inbox. Newly imported rows are automatically sent to AI triage as that batch; existing requests are not reprocessed. If AI is unavailable, the request is marked failed with an explanation and can be retried.
-- **Public form:** A reviewer submits the n8n form. The active n8n workflow sends only that new message to `POST /api/ingest` with a bearer token. The Node.js server analyzes it and stores it in Supabase. Critical requests are surfaced in the app.
-- **Manual entry:** Create a request in the app; AI triage starts automatically for that new request.
+- **CSV import:** Import a CSV from the inbox. Newly imported rows are automatically sent to AI triage as that batch; existing requests are not reprocessed. If the provider request fails, each affected row is marked failed with an explanation and can be retried; if no API key is configured, the app uses its labeled rules fallback.
+- **Public form:** A reviewer submits the n8n form. The active n8n workflow sends only that new message to `POST /api/ingest` with a bearer token. The Node.js server stores it immediately as “Analyzing”, classifies that one message in the background, then saves the result to Supabase. Critical requests are surfaced in the app.
+- **Manual entry:** Create a request in the app; AI triage starts automatically for that new request only.
 
 ## Features
 
